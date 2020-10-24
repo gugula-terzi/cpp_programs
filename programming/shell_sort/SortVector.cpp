@@ -4,30 +4,112 @@
 
 using namespace std;
 
-void print_array (vector<int> arr)
+void print_array_num(int arr[], int n)
 {
-    for (int i = 0; i < arr.size(); i++) // Decoration
+    for (int i = 0; i < n; i++) // Decoration
         cout << "---";
     cout << endl;
-    for (int i = 0; i < arr.size(); i++) // Print the array element by element
+    for (int i = 0; i < n; i++) // Print the array element by element
         cout << arr[i] << " ";
     cout << endl;
-    for (int i = 0; i < arr.size(); i++) // Decoration
+    for (int i = 0; i < n; i++) // Decoration
         cout << "---";
-    cout << endl;
+    cout << endl << endl;
 }
 
-int shellSortAscendent(int arr[], int N)
+void print_array_str(char arr[], int n)
 {
-    for (int gap = N/2; gap > 0; gap /= 2)
+    for (int i = 0; i < n; i++) // Decoration
+        cout << "---";
+    cout << endl;
+    for (int i = 0; i < n; i++) // Print the array element by element
+        cout << arr[i] << " ";
+    cout << endl;
+    for (int i = 0; i < n; i++) // Decoration
+        cout << "---";
+    cout << endl << endl;
+}
+
+void shell_sort_ascending(int arr[], int n) //сортировка Шелла
+{
+    int d = n;
+    d = d/2;
+    while (d>0)
     {
-        for (int i = gap; i < N; i += 1)
+        for (int i = 0; i < n-d; i++)
         {
-            //sort sub lists created by applying gap
-            int temp = arr[i]; int j;
-            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
-                arr[j] = arr[j - gap]; arr[j] = temp;
+            int j = i;
+            while (j >= 0 && arr[j] > arr[j+d])
+            {
+                int count = arr[j];
+                arr[j] = arr[j+d];
+                arr[j+d] = count;
+                j--;
+            }
         }
+        d = d/2;
     }
-    return 0;
+}
+
+void shell_sort_descending(int arr[], int n) //сортировка Шелла
+{
+    int d = n;
+    d = d/2;
+    while (d>0)
+    {
+        for (int i = 0; i < n-d; i++)
+        {
+            int j = i;
+            while (j >= 0 && arr[j] < arr[j+d])
+            {
+                int count = arr[j];
+                arr[j] = arr[j+d];
+                arr[j+d] = count;
+                j--;
+            }
+        }
+        d = d/2;
+    }
+}
+
+void shell_sort_ascending_str(char arr[], int n)
+{
+    int d = n;
+    d = d/2;
+    while (d>0)
+    {
+        for (int i = 0; i < n-d; i++)
+        {
+            int j = i;
+            while (j >= 0 && arr[j] > arr[j+d])
+            {
+                int count = arr[j];
+                arr[j] = arr[j+d];
+                arr[j+d] = count;
+                j--;
+            }
+        }
+        d = d/2;
+    }
+}
+
+void shell_sort_descending_str(char arr[], int n)
+{
+    int d = n;
+    d = d/2;
+    while (d>0)
+    {
+        for (int i = 0; i < n-d; i++)
+        {
+            int j = i;
+            while (j >= 0 && arr[j] < arr[j+d])
+            {
+                int count = arr[j];
+                arr[j] = arr[j+d];
+                arr[j+d] = count;
+                j--;
+            }
+        }
+        d = d/2;
+    }
 }
