@@ -30,7 +30,7 @@ void print_array_str(char arr[], int n)
     cout << endl << endl;
 }
 
-void shell_sort_ascending(int arr[], int n) //сортировка Шелла
+void shell_sort_ascending(int arr[], int n)
 {
     int d = n;
     d = d/2;
@@ -51,7 +51,7 @@ void shell_sort_ascending(int arr[], int n) //сортировка Шелла
     }
 }
 
-void shell_sort_descending(int arr[], int n) //сортировка Шелла
+void shell_sort_descending(int arr[], int n)
 {
     int d = n;
     d = d/2;
